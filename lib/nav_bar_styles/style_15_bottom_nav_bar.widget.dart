@@ -50,38 +50,38 @@ class BottomNavStyle15 extends StatelessWidget {
                                 : item.inactiveIcon ?? item.icon,
                           ),
                         ),
-                        if (item.title == null)
-                          const SizedBox.shrink()
-                        else
-                          Padding(
-                            padding: const EdgeInsets.only(top: 6),
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: FittedBox(
-                                  child: Text(
-                                item.title!,
-                                style: item.textStyle != null
-                                    ? (item.textStyle!.apply(
-                                        color: isSelected
-                                            ? (item.activeColorSecondary ??
-                                                item.activeColorPrimary)
-                                            : item.inactiveColorPrimary))
-                                    : TextStyle(
-                                        color: isSelected
-                                            ? (item.activeColorSecondary ??
-                                                item.activeColorPrimary)
-                                            : item.inactiveColorPrimary,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12),
-                              )),
-                            ),
-                          ),
-                        if (item.title == null)
-                          const SizedBox.shrink()
-                        else
+                        // if (item.title == null)
+                        //   const SizedBox.shrink()
+                        // else
+                        //   Padding(
+                        //     padding: const EdgeInsets.only(top: 6),
+                        //     child: Material(
+                        //       type: MaterialType.transparency,
+                        //       child: FittedBox(
+                        //           child: Text(
+                        //         item.title!,
+                        //         style: item.textStyle != null
+                        //             ? (item.textStyle!.apply(
+                        //                 color: isSelected
+                        //                     ? (item.activeColorSecondary ??
+                        //                         item.activeColorPrimary)
+                        //                     : item.inactiveColorPrimary))
+                        //             : TextStyle(
+                        //                 color: isSelected
+                        //                     ? (item.activeColorSecondary ??
+                        //                         item.activeColorPrimary)
+                        //                     : item.inactiveColorPrimary,
+                        //                 fontWeight: FontWeight.w400,
+                        //                 fontSize: 12),
+                        //       )),
+                        //     ),
+                        //   ),
+                        
+                          if(isSelected)
                           ClipPath(
                             clipper: CurvedHeaderClipper(),
-                            child: Container(
+                            child: 
+                            Container(
                               height: 10,
                               width: 40,
                               decoration: BoxDecoration(
@@ -91,7 +91,20 @@ class BottomNavStyle15 extends StatelessWidget {
                                           item.activeColorPrimary)
                                       : Colors.transparent),
                             ),
+                          )
+                          else
+                          ClipPath(
+                            clipper: CurvedHeaderClipper(),
+                            child: 
+                            Container(
+                              height: 10,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                  // borderRadius: BorderRadius.circular(10),
+                                  color:Colors.transparent),
+                            ),
                           ),
+
                       ],
                     )
                   ],
@@ -157,7 +170,7 @@ class BottomNavStyle15 extends StatelessWidget {
                     const SizedBox.shrink()
                   else
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 0),
+                      padding: const EdgeInsets.only(bottom: 5),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Material(

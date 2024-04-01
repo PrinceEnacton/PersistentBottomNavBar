@@ -23,7 +23,7 @@ class BottomNavStyle15 extends StatelessWidget {
               padding: EdgeInsets.only(
                   top: navBarEssentials!.padding?.top ??
                       navBarEssentials!.navBarHeight! * 0.15,
-                  bottom: 0),
+                  bottom: navBarEssentials!.padding?.bottom ?? navBarEssentials!.navBarHeight! * 0.12),
               child: Container(
                 alignment: Alignment.center,
                 height: height,
@@ -105,7 +105,8 @@ class BottomNavStyle15 extends StatelessWidget {
           ? const SizedBox.shrink()
           : Padding(
               padding: EdgeInsets.only(
-                  top: navBarEssentials!.padding?.top ?? 0.0, bottom: 0.0),
+                  top: navBarEssentials!.padding?.top ?? 0.0,
+                  bottom: navBarEssentials!.padding?.bottom ?? 0.0),
               child: Stack(
                 children: <Widget>[
                   Transform.translate(

@@ -23,8 +23,7 @@ class BottomNavStyle15 extends StatelessWidget {
               padding: EdgeInsets.only(
                   top: navBarEssentials!.padding?.top ??
                       navBarEssentials!.navBarHeight! * 0.15,
-                  bottom: navBarEssentials!.padding?.bottom ??
-                      navBarEssentials!.navBarHeight! * 0.12),
+                  bottom: 0),
               child: Container(
                 alignment: Alignment.center,
                 height: height,
@@ -50,11 +49,14 @@ class BottomNavStyle15 extends StatelessWidget {
                                 : item.inactiveIcon ?? item.icon,
                           ),
                         ),
+                        SizedBox(
+                          height: 3,
+                        ),
                         if (item.title == null)
                           const SizedBox.shrink()
                         else
                           Padding(
-                            padding: const EdgeInsets.only(top: 2),
+                            padding: const EdgeInsets.only(top: 0),
                             child: Material(
                               type: MaterialType.transparency,
                               child: FittedBox(
@@ -157,30 +159,41 @@ class BottomNavStyle15 extends StatelessWidget {
                     const SizedBox.shrink()
                   else
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
+                      padding: const EdgeInsets.only(
+                        bottom: 3,
+                      ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Material(
                           type: MaterialType.transparency,
-                          child: FittedBox(
+                          child: Container(
+                            height: 26,
+                            width: 100,
+                            child: Center(
                               child: Text(
-                            item.title!,
-                            style: item.textStyle != null
-                                ? (item.textStyle!.apply(
-                                    color: isSelected
-                                        ? (item.activeColorSecondary ??
-                                            item.activeColorPrimary)
-                                        : Colors.white))
-                                : TextStyle(
-                                    color: isSelected
-                                        ? (item.activeColorSecondary)
-                                        : item.inactiveColorPrimary,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12),
-                          )),
+                                item.title!,
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: item.textStyle != null
+                                    ? (item.textStyle!.apply(
+                                        color: isSelected
+                                            ? (item.activeColorSecondary ??
+                                                item.activeColorPrimary)
+                                            : Colors.white))
+                                    : TextStyle(
+                                        color: isSelected
+                                            ? (item.activeColorSecondary)
+                                            : item.inactiveColorPrimary,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                      ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    )
+                    ),
                 ],
               ),
             );

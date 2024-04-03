@@ -44,8 +44,7 @@ class BottomNavStyle15 extends StatelessWidget {
                                 color: isSelected
                                     ? (item.activeColorSecondary ??
                                         item.activeColorPrimary)
-                                    : item.inactiveColorPrimary ??
-                                        item.activeColorPrimary),
+                                    : Colors.white),
                             child: isSelected
                                 ? item.icon
                                 : item.inactiveIcon ?? item.icon,
@@ -55,7 +54,7 @@ class BottomNavStyle15 extends StatelessWidget {
                           const SizedBox.shrink()
                         else
                           Padding(
-                            padding: const EdgeInsets.only(top: 0),
+                            padding: const EdgeInsets.only(top: 2),
                             child: Material(
                               type: MaterialType.transparency,
                               child: FittedBox(
@@ -76,20 +75,23 @@ class BottomNavStyle15 extends StatelessWidget {
                                         fontSize: 10),
                               )),
                             ),
-                          )
-                        ClipPath(
-                          clipper: CurvedHeaderClipper(),
-                          child: Container(
-                            height: 10,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                // borderRadius: BorderRadius.circular(10),
-                                color: isSelected
-                                    ? (item.activeColorSecondary ??
-                                        item.activeColorPrimary)
-                                    : Colors.transparent),
                           ),
-                        ),
+                        if (item.title == null)
+                          const SizedBox.shrink()
+                        else
+                          ClipPath(
+                            clipper: CurvedHeaderClipper(),
+                            child: Container(
+                              height: 10,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                  // borderRadius: BorderRadius.circular(10),
+                                  color: isSelected
+                                      ? (item.activeColorSecondary ??
+                                          item.activeColorPrimary)
+                                      : Colors.transparent),
+                            ),
+                          ),
                       ],
                     )
                   ],
@@ -155,7 +157,7 @@ class BottomNavStyle15 extends StatelessWidget {
                     const SizedBox.shrink()
                   else
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 0),
+                      padding: const EdgeInsets.only(bottom: 5),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Material(
@@ -168,10 +170,10 @@ class BottomNavStyle15 extends StatelessWidget {
                                     color: isSelected
                                         ? (item.activeColorSecondary ??
                                             item.activeColorPrimary)
-                                        : item.inactiveColorPrimary))
+                                        : Colors.white))
                                 : TextStyle(
                                     color: isSelected
-                                        ? (item.activeColorPrimary)
+                                        ? (item.activeColorSecondary)
                                         : item.inactiveColorPrimary,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12),

@@ -51,6 +51,32 @@ class BottomNavStyle15 extends StatelessWidget {
                                 : item.inactiveIcon ?? item.icon,
                           ),
                         ),
+                        if (item.title == null)
+                          const SizedBox.shrink()
+                        else
+                          Padding(
+                            padding: const EdgeInsets.only(top: 0),
+                            child: Material(
+                              type: MaterialType.transparency,
+                              child: FittedBox(
+                                  child: Text(
+                                item.title!,
+                                style: item.textStyle != null
+                                    ? (item.textStyle!.apply(
+                                        color: isSelected
+                                            ? (item.activeColorSecondary ??
+                                                item.activeColorPrimary)
+                                            : item.inactiveColorPrimary))
+                                    : TextStyle(
+                                        color: isSelected
+                                            ? (item.activeColorSecondary ??
+                                                item.activeColorPrimary)
+                                            : item.inactiveColorPrimary,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10),
+                              )),
+                            ),
+                          )
                         ClipPath(
                           clipper: CurvedHeaderClipper(),
                           child: Container(

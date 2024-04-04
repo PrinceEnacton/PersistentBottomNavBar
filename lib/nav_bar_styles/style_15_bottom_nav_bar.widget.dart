@@ -194,6 +194,21 @@ class BottomNavStyle15 extends StatelessWidget {
                         ),
                       ),
                     ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: ClipPath(
+                      clipper: CurvedHeaderClipper(),
+                      child: Container(
+                        height: 10,
+                        width: 40,
+                        decoration: BoxDecoration(
+                            color: isSelected
+                                ? (item.activeColorSecondary ??
+                                    item.activeColorPrimary)
+                                : Colors.transparent),
+                      ),
+                    ),
+                  )
                 ],
               ),
             );
